@@ -3,12 +3,14 @@ package sk.stuba.fei.uim.oop.person;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import sk.stuba.fei.uim.oop.animal.Animal;
+import sk.stuba.fei.uim.oop.payment.Payment;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
-@NoArgsConstructor
 public class Person {
 
     @Id
@@ -17,10 +19,15 @@ public class Person {
 
     private String name;
 
-    @ManyToOne
-    private Animal animal;
+    @OneToMany
+    private List<Payment> payments;
 
     public Person(String name) {
+        this();
         this.name = name;
+    }
+
+    public Person() {
+        this.payments = new ArrayList<>();
     }
 }

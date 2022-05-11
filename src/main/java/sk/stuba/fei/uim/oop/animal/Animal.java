@@ -1,6 +1,7 @@
 package sk.stuba.fei.uim.oop.animal;
 
 import lombok.Data;
+import sk.stuba.fei.uim.oop.payment.Payment;
 import sk.stuba.fei.uim.oop.person.Person;
 
 import javax.persistence.*;
@@ -20,9 +21,9 @@ public class Animal {
     private String name;
 
     @OneToMany
-    private List<Person> person;
+    private List<Payment> payments;
 
     public Animal() {
-        this.person = new ArrayList<>();
+        this.payments = new ArrayList<>();
     }
 }

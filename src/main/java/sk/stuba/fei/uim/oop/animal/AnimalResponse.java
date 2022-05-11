@@ -21,6 +21,6 @@ public class AnimalResponse {
         this.id = a.getId();
         this.species = a.getSpecies();
         this.name = a.getName();
-        this.person = a.getPerson().stream().map(PersonResponse::new).collect(Collectors.toList());
+        this.person = a.getPayments().stream().map(payment -> new PersonResponse(payment.getPerson())).collect(Collectors.toList());
     }
 }
