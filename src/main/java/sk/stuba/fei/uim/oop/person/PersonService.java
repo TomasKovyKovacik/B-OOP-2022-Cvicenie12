@@ -26,7 +26,7 @@ public class PersonService implements IPersonService{
 
     @Override
     public Person getById(Long id) {
-        return this.repository.findById(id).get();
+        return this.repository.findById(id).orElseThrow();
     }
 
     @Override
